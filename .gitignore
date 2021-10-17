@@ -1,0 +1,9 @@
+
+# python
+__pycache__
+
+# jupyter
+.ipynb_checkpoints/
+
+# large files
+sudoku.csv
