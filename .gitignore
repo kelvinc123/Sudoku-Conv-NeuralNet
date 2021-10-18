@@ -7,3 +7,6 @@ __pycache__
 
 # large files
 sudoku.csv
+
+# pem key to aws
+my_key.pem
