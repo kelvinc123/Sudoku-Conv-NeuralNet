@@ -175,6 +175,28 @@ class SudokuModel(nn.Module):
             SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
             SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
             SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
+            SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
+            SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
+            SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
+            SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
+            SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
+            SudokuCNN(in_channels=512, out_channels=256, kernel_size=(3,3)),
+            SudokuCNN(in_channels=256, out_channels=128, kernel_size=(3,3)),
+            SudokuCNN(in_channels=128, out_channels=128, kernel_size=(3,3))
+        )
+        self.last_layer = nn.Conv2d(in_channels=128, out_channels=9, kernel_size=(1,1))
+
+        '''
+        1st attempt
+        self.first_layer = SudokuCNN(in_channels=1, out_channels=1024, kernel_size=3)
+        self.middle_layer = nn.Sequential(
+            SudokuCNN(in_channels=1024, out_channels=1024, kernel_size=(3,3)),
+            SudokuCNN(in_channels=1024, out_channels=512, kernel_size=(3,3)),
+            SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
+            SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
+            SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
+            SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
+            SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
             SudokuCNN(in_channels=512, out_channels=256, kernel_size=(3,3)),
             SudokuCNN(in_channels=256, out_channels=256, kernel_size=(3,3)),
             SudokuCNN(in_channels=256, out_channels=256, kernel_size=(3,3)),
@@ -182,6 +204,7 @@ class SudokuModel(nn.Module):
             SudokuCNN(in_channels=128, out_channels=128, kernel_size=(3,3))
         )
         self.last_layer = nn.Conv2d(in_channels=128, out_channels=9, kernel_size=(1,1))
+        '''
         
     def forward(self, x):
         
@@ -284,7 +307,7 @@ def train(model, num_epochs, gpu=True, save=True, load=True, file_name="model.pt
             # increment step
             n_step += 1
 
-        print(f"Training loss: {train_loss / n_step}")
+        print(f"\n\nTraining loss: {train_loss / n_step}")
         train_loss_histories.append(train_loss/n_step)
 
         print("Validation...")
@@ -333,5 +356,5 @@ def train(model, num_epochs, gpu=True, save=True, load=True, file_name="model.pt
 
 print("\n\n")
 print("Begin training")
-num_epochs = 5
-train(model, num_epochs, gpu=True, save=True, load=True, file_name="model.pth")
+num_epochs = 20
+train(model, num_epochs, gpu=True, save=True, load=True, file_name="model2.pth")
