@@ -25,9 +25,6 @@ def load_sudoku(FILE_PATH):
 
 quizzes, solutions = load_sudoku(os.path.join("data", "sudoku.csv"))
 
-quizzes = quizzes[:100]
-solutions = solutions[:100]
-
 # ## Split data for training, validation, and test set
 
 # Ratio for train, validation, and test set = 9:1:1
