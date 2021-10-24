@@ -180,6 +180,9 @@ class SudokuModel(nn.Module):
             SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
             SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
             SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
+            SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
+            SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
+            SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
             SudokuCNN(in_channels=512, out_channels=256, kernel_size=(3,3)),
             SudokuCNN(in_channels=256, out_channels=128, kernel_size=(3,3)),
             SudokuCNN(in_channels=128, out_channels=128, kernel_size=(3,3))
