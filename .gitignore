@@ -10,3 +10,9 @@ sudoku.csv
 
 # pem key to aws
 my_key.pem
+
+# model
+model.pth
+
+# ec2 instance bash script
+ec2_connect

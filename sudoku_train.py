@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+print(f"Using device: {device}")
 
 print("Loading the data...")
 # ## Load data
@@ -23,6 +24,9 @@ def load_sudoku(FILE_PATH):
     return quizzes, solutions
 
 quizzes, solutions = load_sudoku(os.path.join("data", "sudoku.csv"))
+
+quizzes = quizzes[:100]
+solutions = solutions[:100]
 
 # ## Split data for training, validation, and test set
 
@@ -168,10 +172,8 @@ class SudokuModel(nn.Module):
         self.first_layer = SudokuCNN(in_channels=1, out_channels=1024, kernel_size=3)
         self.middle_layer = nn.Sequential(
             SudokuCNN(in_channels=1024, out_channels=1024, kernel_size=(3,3)),
-            SudokuCNN(in_channels=1024, out_channels=1024, kernel_size=(3,3)),
-            SudokuCNN(in_channels=1024, out_channels=1024, kernel_size=(3,3)),
-            SudokuCNN(in_channels=1024, out_channels=1024, kernel_size=(3,3)),
             SudokuCNN(in_channels=1024, out_channels=512, kernel_size=(3,3)),
+            SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
             SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
             SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
             SudokuCNN(in_channels=512, out_channels=512, kernel_size=(3,3)),
@@ -335,4 +337,4 @@ def train(model, num_epochs, gpu=True, save=True, load=True, file_name="model.pt
 print("\n\n")
 print("Begin training")
 num_epochs = 5
-train(model, num_epochs, gpu=False, save=True, load=False, file_name="model.pth")
+train(model, num_epochs, gpu=True, save=True, load=True, file_name="model.pth")
