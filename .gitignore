@@ -16,3 +16,5 @@ model.pth
 
 # ec2 instance bash script
 ec2_connect
+
+git_token
