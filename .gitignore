@@ -13,6 +13,7 @@ my_key.pem
 
 # model
 model.pth
+model2.pth
 
 # ec2 instance bash script
 ec2_connect
