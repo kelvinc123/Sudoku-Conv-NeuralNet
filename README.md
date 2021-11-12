@@ -1,4 +1,4 @@
-##Solving Sudoku using CNN
+## Solving Sudoku using CNN
 
 Data source: https://www.kaggle.com/bryanpark/sudoku 
 
